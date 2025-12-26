@@ -20,12 +20,12 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        if (m_score1 == m_score2) return getEqualityScore(m_score1);
+        if (m_score1 == m_score2) return getValueOfEqualityScore(m_score1);
         else if (m_score1 >= 4 || m_score2 >= 4) return getAdvantagePlayer(m_score1, m_score2);
         else return getPlayersPointValue(m_score1, m_score2);
     }
 
-    private String getEqualityScore(int score) {
+    private String getValueOfEqualityScore(int score) {
         return switch (score) {
             case 0 -> "Love-All";
             case 1 -> "Fifteen-All";
