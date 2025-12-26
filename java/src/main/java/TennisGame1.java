@@ -20,8 +20,8 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        if (m_score1==m_score2) return handleEqualityScore(m_score1);
-        else if (m_score1>=4 || m_score2>=4) return handlePlayerAdvantage(m_score1, m_score2);
+        if (m_score1 == m_score2) return handleEqualityScore(m_score1);
+        else if (m_score1 >= 4 || m_score2 >= 4) return handlePlayerAdvantage(m_score1, m_score2);
         else return handleTwoPlayerScore(m_score1, m_score2);
     }
 
@@ -43,12 +43,12 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String handleTwoPlayerScore(int score1, int score2) {
-        String player1Score = stringScore(score1);
-        String player2Score = stringScore(score2);
+        String player1Score = getPointValue(score1);
+        String player2Score = getPointValue(score2);
         return MessageFormat.format("{0}-{1}", player1Score, player2Score);
     }
 
-    private String stringScore(int score) {
+    private String getPointValue(int score) {
         return switch (score) {
             case 0 -> "Love";
             case 1 -> "Fifteen";
