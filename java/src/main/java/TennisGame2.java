@@ -14,6 +14,10 @@ public class TennisGame2 implements TennisGame {
     }
 
     public String getScore() {
+        return dummy();
+    }
+
+    private String dummy() {
         String score = "";
         if (P1point == P2point && P1point < 4) {
             if (P1point == 0)
@@ -25,8 +29,9 @@ public class TennisGame2 implements TennisGame {
             score += "-All";
         }
 
-        if (P1point == P2point && P1point >= 3)
+        if (P1point == P2point && P1point >= 3) {
             score = "Deuce";
+        }
 
         if (P1point > 0 && P2point == 0) {
             if (P1point == 1)
@@ -93,7 +98,6 @@ public class TennisGame2 implements TennisGame {
         }
         return score;
     }
-
 
     public void P1Score() {
         P1point++;
