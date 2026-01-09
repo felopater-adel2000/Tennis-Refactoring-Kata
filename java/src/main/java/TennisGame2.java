@@ -14,7 +14,12 @@ public class TennisGame2 implements TennisGame {
     }
 
     public String getScore() {
-        return dummy();
+        if(P1point == P2point) {
+            return dummy();
+        }
+        else {
+            return dummy();
+        }
     }
 
     private String dummy() {
