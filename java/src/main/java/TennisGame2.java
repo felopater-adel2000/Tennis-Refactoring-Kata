@@ -139,8 +139,6 @@ public class TennisGame2 implements TennisGame {
                 }
                 return score;
             }
-
-
     }
 
     public void P1Score() {
