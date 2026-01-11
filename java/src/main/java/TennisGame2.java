@@ -91,7 +91,12 @@ public class TennisGame2 implements TennisGame {
             return score;
         }
         else {
-            return dummy();
+            if(P1point > P2point) {
+                return dummy();
+            }
+            else {
+                return dummy();
+            }
         }
 
     }
