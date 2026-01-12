@@ -23,14 +23,8 @@ public class TennisGame2 implements TennisGame {
         else if(isPlayer2Win()) return "Win for player2";
         else if (isAdvantagePlayer1()) return "Advantage player1";
         else if (isAdvantagePlayer2()) return "Advantage player2";
-        else if (is2PlayerHasSamePoint()) {
-            String score = getScoreFromPoint(P1point);
-            return MessageFormat.format("{0}-All", score);
-        }
-
-        String scorePlayer1 = getScoreFromPoint(P1point);
-        String scorePlayer2 = getScoreFromPoint(P2point);
-        return scorePlayer1 + "-" + scorePlayer2;
+        else if (is2PlayerHasSamePoint()) return handleSamePoints();
+        return handleDifferencePoint();
     }
 
     private String getScoreFromPoint(int point) {
@@ -40,6 +34,14 @@ public class TennisGame2 implements TennisGame {
         scorePointMapper.put(2, "Thirty");
         scorePointMapper.put(3, "Forty");
         return scorePointMapper.getOrDefault(point, "");
+    }
+
+    private String handleDifferencePoint() {
+        return getScoreFromPoint(P1point) + "-" + getScoreFromPoint(P2point);
+    }
+
+    private String handleSamePoints() {
+        return MessageFormat.format("{0}-All", getScoreFromPoint(P1point));
     }
 
     private boolean isPlayer1Win() {
