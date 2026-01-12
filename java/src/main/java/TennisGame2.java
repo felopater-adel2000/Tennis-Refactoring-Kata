@@ -77,6 +77,9 @@ public class TennisGame2 implements TennisGame {
             return score;
         }
         else if(P1point > P2point) {
+            if (isPlayer1Win()) {
+                return  "Win for player1";
+            }
                 String score = "";
 
                 if (P1point < 4) {
@@ -95,9 +98,6 @@ public class TennisGame2 implements TennisGame {
                     score = "Advantage player1";
                 }
 
-                if (P1point >= 4 && (P1point - P2point) >= 2) {
-                    score = "Win for player1";
-                }
 
                 return score;
             }
