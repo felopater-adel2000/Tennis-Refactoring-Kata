@@ -1,3 +1,6 @@
+import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TennisGame2 implements TennisGame {
     public int P1point = 0;
@@ -15,23 +18,11 @@ public class TennisGame2 implements TennisGame {
 
     public String getScore() {
         if(P1point == P2point) {
-            String score = "";
-
-            if (P1point < 4) {
-                if (P1point == 0)
-                    score = "Love";
-                if (P1point == 1)
-                    score = "Fifteen";
-                if (P1point == 2)
-                    score = "Thirty";
-                score += "-All";
-            }
-
             if (P1point >= 3) {
-                score = "Deuce";
+                return  "Deuce";
             }
-
-            return score;
+            String score = getScoreFromPoint(P1point);
+            return MessageFormat.format("{0}-All", score);
         }
         else if (P1point == 0) {
             String score = "";
@@ -135,6 +126,15 @@ public class TennisGame2 implements TennisGame {
                 }
                 return score;
             }
+    }
+
+    private String getScoreFromPoint(int point) {
+        Map<Integer, String> scorePointMapper = new HashMap<>();
+        scorePointMapper.put(0, "Love");
+        scorePointMapper.put(1, "Fifteen");
+        scorePointMapper.put(2, "Thirty");
+        scorePointMapper.put(3, "Forty");
+        return scorePointMapper.getOrDefault(point, "");
     }
 
     public void P1Score() {
