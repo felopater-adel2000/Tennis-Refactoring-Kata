@@ -26,75 +26,43 @@ public class TennisGame2 implements TennisGame {
         }
         else if(isPlayer1Win()) return "Win for player1";
         else if(isPlayer2Win()) return "Win for player2";
-
-        else if (P1point == 0) {
+        else if (P2point == 0 || P1point == 0) {
 
             String scorePlayer1 = getScoreFromPoint(P1point);
             String scorePlayer2 = getScoreFromPoint(P2point);
             return scorePlayer1 + "-" + scorePlayer2;
         }
-        else if (P2point == 0) {
-
+        else if (P1point > P2point) {
+            if (P2point >= 3) {
+                return "Advantage player1";
+            }
             String score = "";
 
+            if (P1point == 2)
+                P1res = "Thirty";
+            if (P1point == 3)
+                P1res = "Forty";
+            if (P2point == 1)
+                P2res = "Fifteen";
+            if (P2point == 2)
+                P2res = "Thirty";
+            score = P1res + "-" + P2res;
+            return score;
+        }
+        else {
+            if (P1point >= 3) {
+                return  "Advantage player2";
+            }
+            String score = "";
+            if (P2point == 2)
+                P2res = "Thirty";
+            if (P2point == 3)
+                P2res = "Forty";
             if (P1point == 1)
                 P1res = "Fifteen";
             if (P1point == 2)
                 P1res = "Thirty";
-            if (P1point == 3)
-                P1res = "Forty";
-
-            P2res = "Love";
             score = P1res + "-" + P2res;
-
-            if (P1point == 2)
-                P1res = "Thirty";
-            if (P1point == 3)
-                P1res = "Forty";
-            score = P1res + "-" + P2res;
-
-            return score;
-        }
-        else if (P1point > P2point) {
-            String score = "";
-
-            if (P1point < 4) {
-                if (P1point == 2)
-                    P1res = "Thirty";
-                if (P1point == 3)
-                    P1res = "Forty";
-                if (P2point == 1)
-                    P2res = "Fifteen";
-                if (P2point == 2)
-                    P2res = "Thirty";
-                score = P1res + "-" + P2res;
-            }
-
-            if (P2point >= 3) {
-                score = "Advantage player1";
-            }
-
-
-            return score;
-        }
-        else {
-            String score = "";
-
-            if (P2point < 4) {
-                if (P2point == 2)
-                    P2res = "Thirty";
-                if (P2point == 3)
-                    P2res = "Forty";
-                if (P1point == 1)
-                    P1res = "Fifteen";
-                if (P1point == 2)
-                    P1res = "Thirty";
-                score = P1res + "-" + P2res;
-            }
-
-            if (P1point >= 3) {
-                score = "Advantage player2";
-            }
             return score;
         }
     }
