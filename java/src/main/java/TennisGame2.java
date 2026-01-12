@@ -23,36 +23,17 @@ public class TennisGame2 implements TennisGame {
             }
             String score = getScoreFromPoint(P1point);
             return MessageFormat.format("{0}-All", score);
-        } else if (P1point == 0) {
+        }
+        else if(isPlayer1Win()) return "Win for player1";
+        else if(isPlayer2Win()) return "Win for player2";
 
-            if (isPlayer2Win()) {
-                return "Win for player2";
-            }
+        else if (P1point == 0) {
 
-            String score = "";
-
-            if (P2point == 1)
-                P2res = "Fifteen";
-            if (P2point == 2)
-                P2res = "Thirty";
-            if (P2point == 3)
-                P2res = "Forty";
-
-            P1res = "Love";
-            score = P1res + "-" + P2res;
-
-            if (P2point == 2)
-                P2res = "Thirty";
-            if (P2point == 3)
-                P2res = "Forty";
-            score = P1res + "-" + P2res;
-
-            return score;
-        } else if (P2point == 0) {
-
-            if (isPlayer1Win()) {
-                return "Win for player1";
-            }
+            String scorePlayer1 = getScoreFromPoint(P1point);
+            String scorePlayer2 = getScoreFromPoint(P2point);
+            return scorePlayer1 + "-" + scorePlayer2;
+        }
+        else if (P2point == 0) {
 
             String score = "";
 
@@ -73,7 +54,8 @@ public class TennisGame2 implements TennisGame {
             score = P1res + "-" + P2res;
 
             return score;
-        } else if (P1point > P2point) {
+        }
+        else if (P1point > P2point) {
             if (isPlayer1Win()) {
                 return "Win for player1";
             }
@@ -97,7 +79,8 @@ public class TennisGame2 implements TennisGame {
 
 
             return score;
-        } else {
+        }
+        else {
             if (isPlayer2Win()) {
                 return "Win for player2";
             }
