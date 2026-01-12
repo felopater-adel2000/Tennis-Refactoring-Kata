@@ -33,34 +33,32 @@ public class TennisGame2 implements TennisGame {
 
             return score;
         }
-        else if(P1point == 0) {
-                String score = "";
+        else if (P1point == 0) {
+            String score = "";
 
-                if (P2point > 0) {
-                    if (P2point == 1)
-                        P2res = "Fifteen";
-                    if (P2point == 2)
-                        P2res = "Thirty";
-                    if (P2point == 3)
-                        P2res = "Forty";
+            if (P2point == 1)
+                P2res = "Fifteen";
+            if (P2point == 2)
+                P2res = "Thirty";
+            if (P2point == 3)
+                P2res = "Forty";
 
-                    P1res = "Love";
-                    score = P1res + "-" + P2res;
-                }
+            P1res = "Love";
+            score = P1res + "-" + P2res;
 
-                if (P2point > P1point && P2point < 4) {
-                    if (P2point == 2)
-                        P2res = "Thirty";
-                    if (P2point == 3)
-                        P2res = "Forty";
-                    score = P1res + "-" + P2res;
-                }
-
-                if (P2point >= 4) {
-                    score = "Win for player2";
-                }
-                return score;
+            if (P2point < 4) {
+                if (P2point == 2)
+                    P2res = "Thirty";
+                if (P2point == 3)
+                    P2res = "Forty";
+                score = P1res + "-" + P2res;
             }
+
+            if (P2point >= 4) {
+                score = "Win for player2";
+            }
+            return score;
+        }
         else if (P2point == 0) {
             String score = "";
 
