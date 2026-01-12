@@ -17,17 +17,16 @@ public class TennisGame2 implements TennisGame {
     }
 
     public String getScore() {
-        if(P1point == P2point) {
+        if (P1point == P2point) {
             if (P1point >= 3) {
-                return  "Deuce";
+                return "Deuce";
             }
             String score = getScoreFromPoint(P1point);
             return MessageFormat.format("{0}-All", score);
-        }
-        else if (P1point == 0) {
+        } else if (P1point == 0) {
 
             if (isPlayer2Win()) {
-                return  "Win for player2";
+                return "Win for player2";
             }
 
             String score = "";
@@ -49,11 +48,10 @@ public class TennisGame2 implements TennisGame {
             score = P1res + "-" + P2res;
 
             return score;
-        }
-        else if (P2point == 0) {
+        } else if (P2point == 0) {
 
             if (isPlayer1Win()) {
-                return  "Win for player1";
+                return "Win for player1";
             }
 
             String score = "";
@@ -75,33 +73,31 @@ public class TennisGame2 implements TennisGame {
             score = P1res + "-" + P2res;
 
             return score;
-        }
-        else if(P1point > P2point) {
+        } else if (P1point > P2point) {
             if (isPlayer1Win()) {
-                return  "Win for player1";
+                return "Win for player1";
             }
-                String score = "";
+            String score = "";
 
-                if (P1point < 4) {
-                    if (P1point == 2)
-                        P1res = "Thirty";
-                    if (P1point == 3)
-                        P1res = "Forty";
-                    if (P2point == 1)
-                        P2res = "Fifteen";
-                    if (P2point == 2)
-                        P2res = "Thirty";
-                    score = P1res + "-" + P2res;
-                }
-
-                if (P2point >= 3) {
-                    score = "Advantage player1";
-                }
-
-
-                return score;
+            if (P1point < 4) {
+                if (P1point == 2)
+                    P1res = "Thirty";
+                if (P1point == 3)
+                    P1res = "Forty";
+                if (P2point == 1)
+                    P2res = "Fifteen";
+                if (P2point == 2)
+                    P2res = "Thirty";
+                score = P1res + "-" + P2res;
             }
-        else {
+
+            if (P2point >= 3) {
+                score = "Advantage player1";
+            }
+
+
+            return score;
+        } else {
             if (isPlayer2Win()) {
                 return "Win for player2";
             }
