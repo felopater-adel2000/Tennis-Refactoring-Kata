@@ -26,6 +26,7 @@ public class TennisGame2 implements TennisGame {
         }
         else if(isPlayer1Win()) return "Win for player1";
         else if(isPlayer2Win()) return "Win for player2";
+        else if (isAdvantagePlayer1()) return "Advantage player1";
         else if (P2point == 0 || P1point == 0) {
 
             String scorePlayer1 = getScoreFromPoint(P1point);
@@ -33,9 +34,6 @@ public class TennisGame2 implements TennisGame {
             return scorePlayer1 + "-" + scorePlayer2;
         }
         else if (P1point > P2point) {
-            if (P2point >= 3) {
-                return "Advantage player1";
-            }
             String scorePlayer1 = getScoreFromPoint(P1point);
             String scorePlayer2 = getScoreFromPoint(P2point);
             return scorePlayer1 + "-" + scorePlayer2;
@@ -65,6 +63,10 @@ public class TennisGame2 implements TennisGame {
 
     private boolean isPlayer2Win() {
         return P2point >= 4 && (P2point - P1point) >= 2;
+    }
+
+    private boolean isAdvantagePlayer1() {
+        return P1point > P2point && P2point >= 3;
     }
 
     public void P1Score() {
