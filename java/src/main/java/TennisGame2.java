@@ -25,6 +25,11 @@ public class TennisGame2 implements TennisGame {
             return MessageFormat.format("{0}-All", score);
         }
         else if (P1point == 0) {
+
+            if (isPlayer2Win()) {
+                return  "Win for player2";
+            }
+
             String score = "";
 
             if (P2point == 1)
@@ -37,17 +42,12 @@ public class TennisGame2 implements TennisGame {
             P1res = "Love";
             score = P1res + "-" + P2res;
 
-            if (P2point < 4) {
-                if (P2point == 2)
-                    P2res = "Thirty";
-                if (P2point == 3)
-                    P2res = "Forty";
-                score = P1res + "-" + P2res;
-            }
+            if (P2point == 2)
+                P2res = "Thirty";
+            if (P2point == 3)
+                P2res = "Forty";
+            score = P1res + "-" + P2res;
 
-            if (P2point >= 4) {
-                score = "Win for player2";
-            }
             return score;
         }
         else if (P2point == 0) {
@@ -135,6 +135,14 @@ public class TennisGame2 implements TennisGame {
         scorePointMapper.put(2, "Thirty");
         scorePointMapper.put(3, "Forty");
         return scorePointMapper.getOrDefault(point, "");
+    }
+
+    private boolean isPlayer1Win() {
+        return P1point >= 4 && (P1point - P2point) >= 2;
+    }
+
+    private boolean isPlayer2Win() {
+        return P2point >= 4 && (P2point - P1point) >= 2;
     }
 
     public void P1Score() {
