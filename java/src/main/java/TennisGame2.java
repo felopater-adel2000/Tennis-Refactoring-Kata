@@ -102,29 +102,28 @@ public class TennisGame2 implements TennisGame {
                 return score;
             }
         else {
-                String score = "";
-
-                if (P2point < 4) {
-                    if (P2point == 2)
-                        P2res = "Thirty";
-                    if (P2point == 3)
-                        P2res = "Forty";
-                    if (P1point == 1)
-                        P1res = "Fifteen";
-                    if (P1point == 2)
-                        P1res = "Thirty";
-                    score = P1res + "-" + P2res;
-                }
-
-                if (P1point >= 3) {
-                    score = "Advantage player2";
-                }
-
-                if (P2point >= 4 && (P2point - P1point) >= 2) {
-                    score = "Win for player2";
-                }
-                return score;
+            if (isPlayer2Win()) {
+                return "Win for player2";
             }
+            String score = "";
+
+            if (P2point < 4) {
+                if (P2point == 2)
+                    P2res = "Thirty";
+                if (P2point == 3)
+                    P2res = "Forty";
+                if (P1point == 1)
+                    P1res = "Fifteen";
+                if (P1point == 2)
+                    P1res = "Thirty";
+                score = P1res + "-" + P2res;
+            }
+
+            if (P1point >= 3) {
+                score = "Advantage player2";
+            }
+            return score;
+        }
     }
 
     private String getScoreFromPoint(int point) {
