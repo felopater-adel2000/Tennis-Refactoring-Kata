@@ -17,10 +17,8 @@ public class TennisGame2 implements TennisGame {
     }
 
     public String getScore() {
-        if (P1point == P2point) {
-            if (P1point >= 3) {
-                return "Deuce";
-            }
+        if(is2PlayerDeuce()) return "Deuce";
+        else if (is2PlayerHasSamePointAndNotDeuce()) {
             String score = getScoreFromPoint(P1point);
             return MessageFormat.format("{0}-All", score);
         }
@@ -57,6 +55,14 @@ public class TennisGame2 implements TennisGame {
 
     private boolean isAdvantagePlayer2() {
         return P2point > P1point && P1point >= 3;
+    }
+
+    private boolean is2PlayerDeuce() {
+        return P1point == P2point && P1point >= 3;
+    }
+
+    private boolean is2PlayerHasSamePointAndNotDeuce() {
+        return P1point == P2point && P1point < 3;
     }
 
     public void P1Score() {
