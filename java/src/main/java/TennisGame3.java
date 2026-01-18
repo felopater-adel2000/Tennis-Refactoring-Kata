@@ -11,7 +11,7 @@ public class TennisGame3 implements TennisGame {
         this.p2N = p2N;
     }
 
-    private final String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+    private final String[] scoresList = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
 
     public String getScore() {
         if (p1 >= 4) {
@@ -33,11 +33,11 @@ public class TennisGame3 implements TennisGame {
             return "Deuce";
         }
         else {
-            String s = p[p1];
+            String s = scoresList[p1];
             if (p1 == p2) {
                 return s + "-All";
             } else {
-                return s + "-" + p[p2];
+                return s + "-" + scoresList[p2];
             }
         }
 
