@@ -23,23 +23,14 @@ public class TennisGame3 implements TennisGame {
             if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
             return "Win for " + s;
         }
-        else if(p2 >= 4) {
-            return dummy();
-        }
-        else {
-            return dummy();
-        }
-    }
-
-    private String dummy() {
-        if (p2 >= 4 || p1 + p2 == 6) {
-            if (p1 == p2) return "Deuce";
+        else if (p2 >= 4) {
             String s;
-            if (p1 > p2) s = p1N;
-            else s = p2N;
-
+            s = p2N;
             if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
             return "Win for " + s;
+        }
+        else if (p1 + p2 == 6) {
+            return "Deuce";
         }
         else {
             String s = p[p1];
@@ -49,6 +40,7 @@ public class TennisGame3 implements TennisGame {
                 return s + "-" + p[p2];
             }
         }
+
     }
 
     public void wonPoint(String playerName) {
