@@ -11,10 +11,11 @@ public class TennisGame3 implements TennisGame {
         this.p2N = p2N;
     }
 
+    private final String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+
     public String getScore() {
         String s;
         if (p1 < 4 && p2 < 4 && !(p1 + p2 == 6)) {
-            String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"}; 
             s = p[p1];
             return (p1 == p2) ? s + "-All" : s + "-" + p[p2];
         } else {
