@@ -20,13 +20,13 @@ public class TennisGame3 implements TennisGame {
             if (p1 > p2) s = p1N;
             else s = p2N;
 
-            if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
+            if (isDifferenceBetween2PointsEqual1()) return "Advantage " + s;
             return "Win for " + s;
         }
         else if (p2 >= 4) {
             String s;
             s = p2N;
-            if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
+            if (isDifferenceBetween2PointsEqual1()) return "Advantage " + s;
             return "Win for " + s;
         }
         else if (p1 + p2 == 6) {
@@ -41,6 +41,10 @@ public class TennisGame3 implements TennisGame {
             }
         }
 
+    }
+
+    private boolean isDifferenceBetween2PointsEqual1() {
+        return Math.abs(p1 - p2) == 1;
     }
 
     public void wonPoint(String playerName) {
