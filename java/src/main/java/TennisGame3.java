@@ -14,6 +14,10 @@ public class TennisGame3 implements TennisGame {
     private final String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
 
     public String getScore() {
+        return dummy();
+    }
+
+    private String dummy() {
         if (p1 >= 4 || p2 >= 4 || p1 + p2 == 6) {
             if (p1 == p2) return "Deuce";
             String s;
@@ -22,7 +26,8 @@ public class TennisGame3 implements TennisGame {
 
             if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
             return "Win for " + s;
-        } else {
+        }
+        else {
             String s = p[p1];
             if(p1 == p2) {
                 return s + "-All";
@@ -32,7 +37,7 @@ public class TennisGame3 implements TennisGame {
             }
         }
     }
-    
+
     public void wonPoint(String playerName) {
         if (playerName == "player1")
             this.p1 += 1;
