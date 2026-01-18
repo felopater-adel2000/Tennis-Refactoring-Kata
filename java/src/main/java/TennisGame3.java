@@ -16,9 +16,12 @@ public class TennisGame3 implements TennisGame {
     public String getScore() {
         if (p1 >= 4 || p2 >= 4 || p1 + p2 == 6) {
             if (p1 == p2) return "Deuce";
-            String s = p1 > p2 ? p1N : p2N;
+            String s;
+            if (p1 > p2) s = p1N;
+            else s = p2N;
 
-            return (Math.abs(p1 - p2) == 1) ? "Advantage " + s : "Win for " + s;
+            if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
+            return "Win for " + s;
         } else {
             String s = p[p1];
             if(p1 == p2) {
