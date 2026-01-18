@@ -14,17 +14,16 @@ public class TennisGame3 implements TennisGame {
     private final String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
 
     public String getScore() {
-        if(p1 >= 4) {
-            return dummy();
-        }
-        else {
+        if (p1 >= 4) {
+            if (p1 == p2) return "Deuce";
+            String s;
+            if (p1 > p2) s = p1N;
+            else s = p2N;
 
-            return dummy();
+            if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
+            return "Win for " + s;
         }
-    }
-
-    private String dummy() {
-        if (p1 >= 4 || p2 >= 4 || p1 + p2 == 6) {
+        else if (p2 >= 4 || p1 + p2 == 6) {
             if (p1 == p2) return "Deuce";
             String s;
             if (p1 > p2) s = p1N;
@@ -35,13 +34,13 @@ public class TennisGame3 implements TennisGame {
         }
         else {
             String s = p[p1];
-            if(p1 == p2) {
+            if (p1 == p2) {
                 return s + "-All";
-            }
-            else {
+            } else {
                 return s + "-" + p[p2];
             }
         }
+
     }
 
     public void wonPoint(String playerName) {
