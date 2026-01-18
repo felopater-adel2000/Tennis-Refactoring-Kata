@@ -14,7 +14,13 @@ public class TennisGame3 implements TennisGame {
     private final String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
 
     public String getScore() {
-        return dummy();
+        if(p1 >= 4) {
+            return dummy();
+        }
+        else {
+
+            return dummy();
+        }
     }
 
     private String dummy() {
