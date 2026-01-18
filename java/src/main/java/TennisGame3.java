@@ -23,8 +23,12 @@ public class TennisGame3 implements TennisGame {
             if (Math.abs(p1 - p2) == 1) return "Advantage " + s;
             return "Win for " + s;
         }
-        else return dummy();
-
+        else if(p2 >= 4) {
+            return dummy();
+        }
+        else {
+            return dummy();
+        }
     }
 
     private String dummy() {
